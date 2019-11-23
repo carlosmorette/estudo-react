@@ -1,0 +1,88 @@
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .cabecalho {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        background-color: #FFD166;
+        box-shadow: 3px 3px 9px 5px grey;
+    }
+
+    .local_logo {
+        margin: auto;
+    }
+
+    .localnav {
+        display: flex;
+        justify-content: flex-end;
+        margin: auto;
+        /* background-color: royalblue; */
+        width: 650px;
+    }
+
+    .localnav nav ul {
+        display: flex;
+        justify-content: space-between;
+        /* background-color: red; */
+        width: 300px;
+    }
+
+    .localnav nav ul a {
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .footer {
+        height: 60px;
+        text-align: center;
+        background-color: #1E1E24;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<header>
+    <div class="cabecalho">
+        <div class="local_logo">
+            <h2>Morette</h2>
+        </div>
+        <div class="localnav">
+            <nav>
+                <ul>
+                    <a href="">
+                        <li>Home</li>
+                    </a>
+                    <a href="">
+                        <li>Contato</li>
+                    </a>
+                    <a href="">
+                        <li>Login</li>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<body>
+    <main>
+        <h2>Consulta CEP: </h2>
+        <form method="post">
+            <label>CEP: </label>
+            <input type="text" placeholder="Insira o CEP...">
+            <button>Consultar</button>
+        </form>
+    </main>
+</body>
+<footer>
+    <div class="footer">
+        <p>Carlos Roberto Morette Junior</p>
+    </div>
+</footer>
