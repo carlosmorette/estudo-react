@@ -1,54 +1,75 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from '../../componentes/Header/Header';
 import Footer from '../../componentes/Footer/Footer';
 
 export default class Consulta extends Component {
 
-    constructor(){
+    constructor() {
         super();
-        this.state= {
-            cep:''
+        this.state = {
+
+            // Vai retornar os dados
+            resultado: {
+                bairro: "",
+                cep: ""
+            },
+
+            // Valor pegado do input
+            valor: ""
         }
     }
 
-    consultaCEP(){
-        let cep = ;
-        
-        
-        let url = "https://viacep.com.br/ws/{this.props.cep}/json/";
+    componentDidMount() {
+        console.log('Carregado');
+        this.consultando();
 
-        fetch(url)
-        .then(response => response.json())
-        .then(data => this.setState({ cep : data}))
 
     }
 
+    // Pega o valor do Input
+    //Setando o estado, valor: evento.alvo.valor
+    PegaCep = (event) => {
+        this.setState({ value: event.target.value });
+    }
+
+    // Pegando dados do formulario
+    EnviarFormulario = (event) => {
+        console.log('Um cep foi enviado: ' + this.state.value)
+        event.preventDefault()
+    }
+
+    //GET
+    consultando = () => {
+
+        fetch('https://viacep.com.br/ws/09668050/json/')
+            .then(response => response.json())
+            .then(data => this.setState({ resultado: data }))
+    }
 
     render() {
         return (
             <div className="Home">
                 <Header />
-                <body>
-                    <main>
-                        <h2>Consulta CEP: </h2>
-                        <form method="post">
-                            <label>CEP: </label>
-                            <input type="text" placeholder="Insira o CEP..." />
-                            <button>Consultar</button>
-                        </form>
-                        <div className="consultado">
-                            {
-                                this.state.cep.map(
-                                    function (consulta){
-                                        return(
-                                            <p>{consulta.cep}</p>
-                                        )
-                                    }
+                <div className="consultas">
+                    {/* <form onSubmit={this.EnviarFormulario}>
+                        <input placeholder="Consulta Cep..."
+                            onChange={this.PegaCep} />
+                        <button>Consultar</button>
+                    </form> */}
+                    {
+                        this.state.resultado.map(
+                            function (mapear) {
+                                return (
+                                    <p>{mapear.resultado.cep}</p>
                                 )
                             }
-                        </div>
-                    </main>
-                </body>
+                        )
+                    }
+                    {
+                        console.log(this.state.cep.bairro)
+                    }
+
+                </div>
                 <Footer />
             </div>
         );
