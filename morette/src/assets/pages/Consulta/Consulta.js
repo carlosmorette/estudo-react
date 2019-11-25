@@ -8,11 +8,8 @@ export default class Consulta extends Component {
         super();
         this.state = {
 
-            // Vai retornar os dados
-            resultado: {
-                bairro: "",
-                cep: ""
-            },
+
+            cep: [],
 
             // Valor pegado do input
             valor: ""
@@ -41,9 +38,11 @@ export default class Consulta extends Component {
     //GET
     consultando = () => {
 
-        fetch('https://viacep.com.br/ws/09668050/json/')
+        fetch(`https://viacep.com.br/ws/${this.state}}/json/`)
             .then(response => response.json())
-            .then(data => this.setState({ resultado: data }))
+            .then(data => this.setState({ cep: data }))
+            .then(() => console.log(this.state.cep))
+
     }
 
     render() {
@@ -51,19 +50,27 @@ export default class Consulta extends Component {
             <div className="Home">
                 <Header />
                 <div className="consultas">
-                    {/* <form onSubmit={this.EnviarFormulario}>
+                    <form onSubmit={this.EnviarFormulario}>
                         <input placeholder="Consulta Cep..."
                             onChange={this.PegaCep} />
                         <button>Consultar</button>
-                    </form> */}
-                    {
-                        this.state.resultado.map(
+                    </form>
+                    {/* {
+                        this.state.cep.map(
                             function (mapear) {
                                 return (
-                                    <p>{mapear.resultado.cep}</p>
+                                    <p>{mapear.cep.logradouro}</p>
                                 )
                             }
                         )
+                    } */}
+                    {
+                        <div>
+
+                            <p>{this.state.cep.logradouro}</p>
+                            <p>{this.state.cep.cep}</p>
+
+                        </div>
                     }
                     {
                         console.log(this.state.cep.bairro)
