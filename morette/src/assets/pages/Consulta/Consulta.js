@@ -8,72 +8,55 @@ export default class Consulta extends Component {
         super();
         this.state = {
 
-
+            // Dados mostrados
             cep: [],
 
             // Valor pegado do input
-            valor: ""
+            valor: "",
         }
     }
 
     componentDidMount() {
         console.log('Carregado');
-        this.consultando();
-
-
+        this.Consultar();
+        console.log(this.state.valor)
     }
 
-    // Pega o valor do Input
-    //Setando o estado, valor: evento.alvo.valor
-    PegaCep = (event) => {
-        this.setState({ value: event.target.value });
+    PegaCep(input){
+        this.setState({ valor: input.target.value })
+    }
+    
+    Consultar(cep){   
+
+        var url = 'https://viacep.com.br/ws/'+ cep +'/json/'
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data => this.setState({ cep: data }))
     }
 
-    // Pegando dados do formulario
-    EnviarFormulario = (event) => {
-        console.log('Um cep foi enviado: ' + this.state.value)
-        event.preventDefault()
-    }
-
-    //GET
-    consultando = () => {
-
-        fetch(`https://viacep.com.br/ws/${this.state}}/json/`)
-            .then(response => response.json())
-            .then(data => this.setState({ cep: data }))
-            .then(() => console.log(this.state.cep))
-
-    }
 
     render() {
         return (
             <div className="Home">
                 <Header />
                 <div className="consultas">
-                    <form onSubmit={this.EnviarFormulario}>
-                        <input placeholder="Consulta Cep..."
-                            onChange={this.PegaCep} />
-                        <button>Consultar</button>
+                    <form onSubmit={this.Consultar}>
+                        <input
+                            type="text"
+                            placeholder="Consulta Cep..."
+                            name="valor"
+                            value={this.state.valor}
+                            onChange={this.PegaCep.bind(this)} 
+                        />
+                        <button 
+                            type="submit"
+                        >Consultar</button>
                     </form>
-                    {/* {
-                        this.state.cep.map(
-                            function (mapear) {
-                                return (
-                                    <p>{mapear.cep.logradouro}</p>
-                                )
-                            }
-                        )
-                    } */}
                     {
                         <div>
-
-                            <p>{this.state.cep.logradouro}</p>
-                            <p>{this.state.cep.cep}</p>
-
+                            <p>Bairro: {this.state.cep.bairro}</p>
                         </div>
-                    }
-                    {
-                        console.log(this.state.cep.bairro)
                     }
 
                 </div>
