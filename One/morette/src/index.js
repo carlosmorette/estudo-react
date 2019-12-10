@@ -2,7 +2,6 @@ import React from 'react';
 
 // Página Home
 import Home from './assets/pages/Home/Home';
-import Consulta from './assets/pages/Consulta/Consulta';
 import * as serviceWorker from './serviceWorker';
 
 // react-router-dom
@@ -14,7 +13,6 @@ const Rotas = (
         <div>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/consulta" component={Consulta} />
             </Switch>
         </div>
     </Router>
