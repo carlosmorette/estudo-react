@@ -1,2 +1,2 @@
 # EstudoReact
-Feito para estudos
+Consumo da API Via Cep
