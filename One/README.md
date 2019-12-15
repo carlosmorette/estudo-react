@@ -1,2 +1,0 @@
-# EstudoReact
-Feito para estudos
