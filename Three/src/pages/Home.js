@@ -54,7 +54,8 @@ class Home extends Component {
         return (
             <div className="Home">
                 <main>
-                    <h1>API do Star Wars</h1><br/>
+                    <h1>API do Star Wars</h1><br />
+                    {this.state.carregando && <i className="fab fa-galactic-republic fa-spin fs-5 fa-5x"></i>}<br /><br />
                     <form onSubmit={this.buscar}>
                         <input
                             placeholder="Id..."
@@ -62,7 +63,7 @@ class Home extends Component {
                             id="input"
                         />
                         <button type="submit">Buscar</button>
-                    </form><br/>
+                    </form><br />
                     <div className="dados">
                         <p>
                             Nome: {this.state.dados.name}<br />
