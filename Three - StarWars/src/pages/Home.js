@@ -14,6 +14,7 @@ class Home extends Component {
 
             // Icone carregando setado como falso para não aparecer
             carregando: false,
+
         }
     }
 
@@ -24,7 +25,9 @@ class Home extends Component {
 
     }
 
+
     buscar = (e) => {
+        // Evita que a tela recarregue
         e.preventDefault();
 
         // Quando entrar na consulta, vamos 
@@ -45,16 +48,17 @@ class Home extends Component {
             // Se houver erro nos deixamos o icone como falso
             .catch(error => {
                 this.setState({ carregando: false });
-                console.log(error)
+                console.log(error);
             })
     }
+
     //#endregion
 
     render() {
         return (
             <div className="Home">
                 <main>
-                    <h1>API do Star Wars</h1><br/>
+                    <h1>API do Star Wars</h1><br />
                     <form onSubmit={this.buscar}>
                         <input
                             placeholder="Id..."
@@ -62,7 +66,7 @@ class Home extends Component {
                             id="input"
                         />
                         <button type="submit">Buscar</button>
-                    </form><br/>
+                    </form><br />
                     <div className="dados">
                         <p>
                             Nome: {this.state.dados.name}<br />
