@@ -59,6 +59,10 @@ class Home extends Component {
             <div className="Home">
                 <main>
                     <h1>API do Star Wars</h1><br />
+<<<<<<< HEAD:Three - StarWars/src/pages/Home.js
+=======
+                    {this.state.carregando && <i className="fab fa-galactic-republic fa-spin fs-5 fa-5x"></i>}<br /><br />
+>>>>>>> ce116f6026f9cf3992f0548355049e176e1d2b40:Three/src/pages/Home.js
                     <form onSubmit={this.buscar}>
                         <input
                             placeholder="Id..."
