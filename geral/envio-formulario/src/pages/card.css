@@ -1,0 +1,11 @@
+.modal, .formulario {
+    width: 340px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 20px;
+}
