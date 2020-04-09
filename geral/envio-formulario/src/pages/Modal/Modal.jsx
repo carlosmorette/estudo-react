@@ -10,7 +10,7 @@ class Modal extends Component {
                     <p>Nome: {this.props.nome}</p>
                     <p>Email: {this.props.email}</p>
                     <p>CEP: {this.props.cep}</p>
-                    <p>Logradouro:{this.props.logradouro}</p>
+                    <p>Logradouro: {this.props.logradouro}</p>
                     <p>Bairro: {this.props.bairro}</p>
                 </div>
             </div>

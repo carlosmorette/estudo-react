@@ -29,12 +29,12 @@ class App extends Component {
 
     // Fizemos a requisição dos repositórios do usuário
     fetch(`https://api.github.com/users/${usuarioProcurado}/repos`)
-    .then(resp => resp.json())
-    .then(data => {
-      console.log(data)
-      this.setState({ repositorios: data})
-      
-    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+        this.setState({ repositorios: data })
+
+      })
   }
 
   render() {
@@ -53,31 +53,31 @@ class App extends Component {
         <div className="dados">
           {
             // Caso o state urlFoto for estritamente diferente de nulo então renderiza o que pedimos
-            this.state.urlFoto !== '' ? 
-            <div className="usuario">
-              <img src={this.state.urlFoto} />
-              <p>Nome: {this.state.nome}</p>
-              <table>
-                <thead>
-                  <tr>
-                    <td><h2>Repositórios</h2></td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    {
-                      // Percorremos o state e renderiamos o nome do repositório
-                      this.state.repositorios.map((e, index) => {
-                        return(
-                          <td key={index}>{e.name}</td>
-                        )
-                      })
-                    }
-                  </tr>
-                </tbody>
-              </table>
+            this.state.urlFoto !== '' ?
+              <div className="usuario">
+                <img src={this.state.urlFoto} />
+                <p>Nome: {this.state.nome}</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td><h2>Repositórios</h2></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      {
+                        // Percorremos o state e renderiamos o nome do repositório
+                        this.state.repositorios.map((e, index) => {
+                          return (
+                            <td key={index}>{e.name}</td>
+                          )
+                        })
+                      }
+                    </tr>
+                  </tbody>
+                </table>
 
-            </div> :
+              </div> :
               <img src={logo} />
           }
         </div>
