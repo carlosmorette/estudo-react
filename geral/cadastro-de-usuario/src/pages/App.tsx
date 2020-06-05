@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import Form from './Form/Form'
+import TextInput from '../components/TextInput';
+import { makeStyles } from '@material-ui/core'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Form/>
+    <div style={{alignItems: 'center'}}>
+      <TextInput nameInput="Email" />
     </div>
   );
 }
